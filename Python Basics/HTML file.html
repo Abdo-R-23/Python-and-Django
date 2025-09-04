@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTML Elements Demo</title>
+  <style>
+    :root { --bg:#0f172a; --fg:#e2e8f0; --muted:#94a3b8; --card:#111827; --accent:#38bdf8; }
+    html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; background:var(--bg); color:var(--fg);} 
+    main{max-width:1100px;margin:auto;padding:32px;}
+    section{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0));border:1px solid rgba(255,255,255,0.06);border-radius:18px;padding:20px 24px;margin:18px 0;}
+    h1,h2,h3{margin:8px 0 12px;}
+    h2{color:var(--accent)}
+    code{background:#0b1220;border:1px solid rgba(255,255,255,0.08);padding:2px 6px;border-radius:8px;color:#93c5fd}
+    .hint{font-size:0.95rem;color:var(--muted)}
+    .grid{display:grid;gap:14px}
+    .two{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .demo-box{padding:10px;border:1px dashed rgba(255,255,255,0.2);border-radius:12px}
+    .inline-area span{border:1px solid rgba(255,255,255,0.25);padding:6px 8px;border-radius:10px;margin-right:6px}
+    .block-area div{border:1px solid rgba(255,255,255,0.25);padding:10px;border-radius:10px;margin:8px 0}
+    table{width:100%;border-collapse:collapse}
+    th,td{border:1px solid rgba(255,255,255,0.2);padding:10px;text-align:left}
+    thead th{background:#0b1220}
+    caption{caption-side:bottom;color:var(--muted);padding-top:8px}
+    form{display:grid;gap:14px}
+    label{display:block;margin-bottom:6px;color:#cbd5e1}
+    input,select,textarea,button{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:#0b1220;color:var(--fg)}
+    button{cursor:pointer;background:#1f2937;border:1px solid rgba(255,255,255,0.2)}
+    .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .small{font-size:0.9rem;color:var(--muted)}
+    .media{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+    iframe{width:100%;height:220px;border:1px solid rgba(255,255,255,0.2);border-radius:12px}
+    img{max-width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.15)}
+  </style>
+</head>
+<body>
+  <main>
+    <!-- 1) Headings -->
+    <section id="headings">
+      <h1>1) Headings</h1>
+      <p class="hint">Headings from <code>&lt;h1&gt;</code> (most important) down to <code>&lt;h6&gt;</code> (least important).</p>
+      <h1>Heading H1</h1>
+      <h2>Heading H2</h2>
+      <h3>Heading H3</h3>
+      <h4>Heading H4</h4>
+      <h5>Heading H5</h5>
+      <h6>Heading H6</h6>
+    </section>
+
+    <!-- 2) Paragraphs -->
+    <section id="paragraph">
+      <h2>2) Paragraph</h2>
+      <p>This is an example of a text paragraph using the <code>&lt;p&gt;</code> element. You can place any text here to display as normal page content.</p>
+      <p class="hint">You can use formatting elements inside a paragraph like <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, and <code>&lt;a&gt;</code>.</p>
+    </section>
+
+    <!-- 3) Comments -->
+    <section id="comments">
+      <h2>3) Comment</h2>
+      <p>An HTML comment does not appear to the end user, but is useful for developers inside the code.</p>
+      <!-- This is an HTML comment: will not show in browser -->
+      <pre><code>&lt;!-- This is an HTML comment --&gt;</code></pre>
+    </section>
+
+    <!-- 4) Images -->
+    <section id="images">
+      <h2>4) Images</h2>
+      <p>Image with alternative text <code>alt</code> and description:</p>
+      <img src="https://via.placeholder.com/600x320?text=Sample+Image" alt="Placeholder demo image" />
+      <p class="small">The alt text is used when the image fails to load or for screen readers.</p>
+    </section>
+
+    <!-- 5) Link and Iframe -->
+    <section id="link-iframe" class="grid two">
+      <div>
+        <h2>5) Link</h2>
+        <p>An external link opens in a new tab:</p>
+        <p><a href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN Web Docs</a></p>
+        <p class="small">Use <code>target="_blank"</code> to open the link in a new tab, and <code>rel="noopener"</code> for security.</p>
+      </div>
+      <div>
+        <h2>Iframe</h2>
+        <p class="small">An embedded frame. Here we use <code>srcdoc</code> to make the example self-contained.</p>
+        <iframe title="Inline Frame Demo" srcdoc="&lt;!doctype html&gt;&lt;html&gt;&lt;body style='font:16px system-ui;padding:10px'&gt;&lt;h3&gt;Hello from iframe&lt;/h3&gt;&lt;p&gt;This content lives inside an &amp;lt;iframe&amp;gt; using &lt;code&gt;srcdoc&lt;/code&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+      </div>
+    </section>
+
+    <!-- 6) Inline vs Block -->
+    <section id="inline-block" class="grid two">
+      <div class="demo-box inline-area">
+        <h2>6) Inline Elements</h2>
+        <p><strong>Inline</strong> elements do not start a new line by default:</p>
+        <span>&lt;span&gt;</span>
+        <span>&lt;strong&gt;</span>
+        <span>&lt;em&gt;</span>
+        <span>&lt;a&gt;</span>
+      </div>
+      <div class="demo-box block-area">
+        <h2>Block Elements</h2>
+        <p><strong>Block</strong> elements take the full width and start on a new line:</p>
+        <div>&lt;div&gt; Block 1</div>
+        <div>&lt;p&gt; Block 2</div>
+        <div>&lt;section&gt; Block 3</div>
+      </div>
+    </section>
+
+    <!-- 7) Table -->
+    <section id="table">
+      <h2>7) Table</h2>
+      <table>
+        <caption>Simple Employee Table</caption>
+        <thead>
+          <tr><th>#</th><th>Name</th><th>Position</th><th>Salary</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Ali</td><td>Frontend Dev</td><td>$1,200</td></tr>
+          <tr><td>2</td><td>Mona</td><td>Backend Dev</td><td>$1,400</td></tr>
+          <tr><td>3</td><td>Samir</td><td>QA Engineer</td><td>$1,100</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 8) Lists -->
+    <section id="lists" class="grid two">
+      <div>
+        <h2>8) Lists</h2>
+        <p>Unordered list (UL):</p>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+        <p>Ordered list (OL):</p>
+        <ol>
+          <li>Install VS Code</li>
+          <li>Create index.html</li>
+          <li>Open with Live Server</li>
+        </ol>
+      </div>
+      <div>
+        <h2>Definition List (DL)</h2>
+        <dl>
+          <dt>HTTP</dt>
+          <dd>Hypertext Transfer Protocol.</dd>
+          <dt>URL</dt>
+          <dd>Uniform Resource Locator.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 9) Form -->
+    <section id="form">
+      <h2>9) Form</h2>
+      <p class="hint">Example of a form containing common elements.</p>
+      <!-- 10) Form attributes shown on the form element below -->
+      <form action="/submit" method="post" autocomplete="on" target="_self">
+        <div class="row">
+          <div>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required minlength="2" maxlength="60" autocomplete="name" />
+          </div>
+          <div>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" required autocomplete="email" />
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="••••••••" required minlength="6" autocomplete="new-password" />
+          </div>
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="01XXXXXXXXX" pattern="^[0-9]{10,15}$" autocomplete="tel" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="role">Select Role (Select)</label>
+            <select id="role" name="role" required>
+              <option value="">-- Choose --</option>
+              <optgroup label="Development">
+                <option value="frontend">Frontend</option>
+                <option value="backend">Backend</option>
+                <option value="fullstack">Full‑Stack</option>
+              </optgroup>
+              <optgroup label="QA">
+                <option value="qa">QA Engineer</option>
+              </optgroup>
+            </select>
+          </div>
+          <div>
+            <label for="city">City (Datalist)</label>
+            <input list="cities" id="city" name="city" placeholder="Type to choose city" />
+            <datalist id="cities">
+              <option value="Cairo"></option>
+              <option value="Giza"></option>
+              <option value="Alexandria"></option>
+              <option value="Mansoura"></option>
+            </datalist>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="birth">Date of Birth</label>
+            <input type="date" id="birth" name="birth" />
+          </div>
+          <div>
+            <label for="cv">Upload CV (File)</label>
+            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" />
+          </div>
+        </div>
+
+        <div>
+          <label for="bio">Short Bio</label>
+          <textarea id="bio" name="bio" rows="4" placeholder="Write a short bio..."></textarea>
+        </div>
+
+        <div class="row">
+          <div>
+            <label><input type="checkbox" name="subscribe" value="yes" /> Subscribe to newsletter</label>
+          </div>
+          <div>
+            <label><input type="radio" name="level" value="junior" checked /> Junior</label>
+            <label><input type="radio" name="level" value="senior" /> Senior</label>
+          </div>
+        </div>
+
+        <div class="small">* To skip browser validation (for testing) you can add the <code>novalidate</code> attribute to the <code>&lt;form&gt;</code> element.</div>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- 12) Video & Audio -->
+    <section id="media">
+      <h2>12) Videos & Audios</h2>
+      <div class="media">
+        <div>
+          <h3>Video</h3>
+          <video controls width="100%" poster="https://via.placeholder.com/640x360?text=Video+Poster">
+            <source src="sample-video.mp4" type="video/mp4" />
+            Your browser does not support the video element.
+          </video>
+        </div>
+        <div>
+          <h3>Audio</h3>
+          <audio controls>
+            <source src="sample-audio.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p><a href="#headings">Back to top ↑</a></p>
+    </section>
+  </main>
+</body>
+</html>
